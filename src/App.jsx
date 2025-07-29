@@ -1,6 +1,6 @@
 import { THEME, TonConnectUIProvider } from "@tonconnect/ui-react";
 import "./App.css";
-import { Header } from "./components/common/Header";
+import { Header } from "./components/common/header.jsx";
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import axios from "axios";
