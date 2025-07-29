@@ -1,5 +1,5 @@
 import React from "react";
-import { TonLogo } from "./Header";
+import { TonLogo } from "./header.jsx";
 import "./prize.css";
 export default function Prize(props) {
   return (
