@@ -7,7 +7,7 @@ export default defineConfig({
   resolve: {
     alias: {
       buffer: "buffer",
-      base: "/hattt/",
     },
   },
+  base: "hattt",
 });
