@@ -180,11 +180,14 @@ export default function Profile() {
               onClick={() => {
                 console.log(123);
                 axios
-                  .post("http://127.0.0.1:8000/balance/withdraw", {
-                    user_id: 664664,
-                    amount: wd,
-                    address: address,
-                  })
+                  .post(
+                    "https://singstal12345.pythonanywhere.com/balance/withdraw",
+                    {
+                      user_id: 664664,
+                      amount: wd,
+                      address: address,
+                    }
+                  )
                   .then((r) => {
                     setBalance(balance - wd);
                   })

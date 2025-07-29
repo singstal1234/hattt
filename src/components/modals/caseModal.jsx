@@ -66,7 +66,7 @@ export default function CaseModal(props) {
             setSecondModal(
               <ClaimModal
                 price={r.data.prize.price}
-                image={`http://127.0.0.1:8000/photo/prize?prize_id=${
+                image={`https://singstal12345.pythonanywhere.com/photo/prize?prize_id=${
                   r.data.prize.prize_id
                 }&t=${Date.now()}`}
               />
@@ -132,7 +132,7 @@ export default function CaseModal(props) {
     console.log(props.case.prizes);
     const newCasePrizes = props.case.prizes.map((element) => {
       return {
-        image: `http://127.0.0.1:8000/photo/prize?prize_id=${
+        image: `https://singstal12345.pythonanywhere.com/photo/prize?prize_id=${
           element.prize_id
         }&t=${Date.now()}`,
         price: element.price,

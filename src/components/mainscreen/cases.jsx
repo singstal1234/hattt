@@ -29,7 +29,7 @@ export default function Cases() {
           >
             <div className="case-image">
               <img
-                src={`http://127.0.0.1:8000/photo/case?case_id=${
+                src={`https://singstal12345.pythonanywhere.com/photo/case?case_id=${
                   el.case_id
                 }&t=${Date.now()}`}
                 alt=""
