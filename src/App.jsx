@@ -1,22 +1,15 @@
 import { THEME, TonConnectUIProvider } from "@tonconnect/ui-react";
 import "./App.css";
 import { Header } from "./components/common/Header";
-import Deposit from "./components/deposit/deposit";
 import { useEffect, useState } from "react";
-import { Buffer } from "buffer";
-import { Provider, useDispatch, useSelector } from "react-redux";
-import { store } from "./store/store";
+import { useDispatch, useSelector } from "react-redux";
 import axios from "axios";
 import { setBalance, setId } from "./store/slices/userSlice";
 import { setCases, setPrizes } from "./store/slices/caseSlice";
 import Cases from "./components/mainscreen/cases";
-import CaseRollWindow from "./components/mainscreen/caseRollWindow";
 import Winbar from "./components/mainscreen/winbar";
 import FirstDepositBanner from "./components/mainscreen/firstDepositBanner";
 import TabSwitcher from "./components/common/tabSwitcher";
-import CaseModal from "./components/modals/caseModal";
-import { setModal } from "./store/slices/modalSlice";
-import ClaimModal from "./components/modals/claimModal";
 import Events from "./components/events/events";
 import Profile from "./components/profile/profile";
 
