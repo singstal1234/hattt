@@ -1,0 +1,49 @@
+.tab-switcher {
+  position: fixed;
+  width: 100dvw;
+  height: 61px;
+  padding: 0 0 8px;
+  bottom: 0;
+  left: 0;
+  background-color: #313131c0;
+  box-shadow: 0px -4px 7.5px 0px rgba(0, 0, 0, 0.42);
+  border-radius: 10px 10px 0 0;
+  display: flex;
+  justify-content: space-between;
+  backdrop-filter: blur(15px);
+  z-index: 1000;
+}
+
+.tab1,
+.tab2,
+.tab3 {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 7px;
+  font-family: Inter, sans-serif;
+  font-weight: 400;
+  font-size: 12px;
+  transition: all 0.3s;
+}
+
+.tab3 {
+  /* TODO: Починить и убрать */
+  gap: 0px;
+}
+
+.tab1 {
+  width: 23%;
+  color: #898989;
+}
+
+.tab2 {
+  width: 54%;
+  color: #898989;
+}
+
+.tab3 {
+  width: 23%;
+  color: #898989;
+}

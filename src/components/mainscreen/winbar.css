@@ -1,0 +1,66 @@
+.winbar {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.winbar-live {
+  width: calc(100% - 36px);
+  padding: 0 0 0 0;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.live-circle {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background-color: red;
+  animation: live 3s ease-in-out infinite;
+}
+
+@keyframes live {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0;
+  }
+}
+
+.live-text {
+  color: white;
+  font-family: Inter, sans-serif;
+  font-weight: 600;
+  font-size: 10px;
+}
+
+.winbar-prizes-wrapper {
+  overflow: hidden;
+  width: calc(100vw - 36px);
+  padding: 0;
+}
+
+.winbar-prizes {
+  display: flex;
+  gap: 8px;
+  transform: translateX(0);
+}
+
+.winbar-prize {
+  width: calc((100% - 44px - 36px) / 12);
+  aspect-ratio: 1 / 1;
+  border-radius: 4px;
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  flex-shrink: 0;
+}
+
+.winbar-wrapper {
+  width: calc(100% - 36px);
+  padding: 0px 12px 0px 24px;
+  overflow: hidden;
+}

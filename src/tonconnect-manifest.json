@@ -1,0 +1,9 @@
+{
+  "name": "TON Pay MiniApp",
+  "description": "Мини-приложение для оплаты Toncoin",
+  "icons": ["https://yourdomain.com/icon.png"],
+  "redirect": {
+    "native": "",
+    "universal": ""
+  }
+}

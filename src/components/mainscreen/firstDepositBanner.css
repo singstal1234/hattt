@@ -1,0 +1,7 @@
+.banner {
+  width: calc(100% - 62px);
+  padding: 0px 31px;
+}
+.banner img {
+  width: 100%;
+}

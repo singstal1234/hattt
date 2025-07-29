@@ -1,0 +1,18 @@
+.events {
+  display: flex;
+  flex-direction: column;
+  width: calc(100% - 24px);
+  margin-left: 12px;
+}
+.events-title {
+  text-align: center;
+  font-family: Inter, sans-serif;
+  font-size: 16px;
+  font-weight: 700;
+  color: white;
+  margin: 40px 0 8px;
+}
+
+.event-banner {
+  border-radius: 15px;
+}

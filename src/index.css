@@ -1,0 +1,13 @@
+body {
+  display: flex;
+  justify-content: center;
+  height: 100dvh;
+  margin: 0;
+  background-color: #141414;
+}
+
+#root {
+  height: calc(100% - 20px);
+  width: 100%;
+  /* padding: 10px; */
+}
