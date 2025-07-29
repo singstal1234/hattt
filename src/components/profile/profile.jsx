@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import "./profile.css";
 import avatar from "./../../assets/avatar.jpg";
-import { TonLogo } from "../common/Header";
+import { TonLogo } from "../common/header.jsx";
 import { useTonConnectUI, useTonWallet } from "@tonconnect/ui-react";
 import { useDispatch, useSelector } from "react-redux";
 import { setBalance } from "../../store/slices/userSlice";

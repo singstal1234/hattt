@@ -6,7 +6,7 @@ import axios from "axios";
 import { setBg, setModal } from "../../store/slices/modalSlice";
 import CaseRollWindow from "./caseRollWindow";
 import caseImg from "./../../assets/case1.png";
-import { TonLogo } from "../common/Header";
+import { TonLogo } from "../common/header.jsx";
 import CaseModal from "../modals/caseModal";
 
 export default function Cases() {
