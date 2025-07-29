@@ -31,7 +31,7 @@ export default function CaseModal(props) {
     setIsRolling(true);
     dispatch(setBalance(balance - props.case.price));
     axios
-      .post("http://localhost:8000/case/open", {
+      .post("https://singstal12345.pythonanywhere.com/case/open", {
         case_id: props.case.case_id,
         user_id: 664664,
       })

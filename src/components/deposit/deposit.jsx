@@ -53,10 +53,14 @@ export default function Deposit() {
             tonConnectUi.sendTransaction(request).then(() => {
               setTimeout(() => {
                 axios
-                  .post("http://localhost:8000/balance/check-update")
+                  .post(
+                    "https://singstal12345.pythonanywhere.com/balance/check-update"
+                  )
                   .then((_) => {
                     axios
-                      .get(`http://localhost:8000/balance/get/${tgId}`)
+                      .get(
+                        `https://singstal12345.pythonanywhere.com/balance/get/${tgId}`
+                      )
                       .then((r) => {
                         dispatch(setBalance(r.data));
                       })

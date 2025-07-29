@@ -25,24 +25,26 @@ function App() {
   }, []);
 
   useEffect(() => {
-    axios.post("http://localhost:8000/balance/check-update").then((_) => {
-      setTimeout(() => {
-        axios
-          .get(`http://localhost:8000/balance/get/${tgId}`)
-          .then((r) => {
-            dispatch(setBalance(r.data));
-          })
-          .catch((e) => {
-            console.log(e);
-            alert(e);
-          });
-      }, 2000);
-    });
+    axios
+      .post("https://singstal12345.pythonanywhere.com/balance/check-update")
+      .then((_) => {
+        setTimeout(() => {
+          axios
+            .get(`https://singstal12345.pythonanywhere.com/balance/get/${tgId}`)
+            .then((r) => {
+              dispatch(setBalance(r.data));
+            })
+            .catch((e) => {
+              console.log(e);
+              alert(e);
+            });
+        }, 2000);
+      });
   }, []);
 
   useEffect(() => {
     axios
-      .get(`http://localhost:8000/case`)
+      .get(`https://singstal12345.pythonanywhere.com/case`)
       .then((r) => {
         dispatch(setCases(r.data));
       })
@@ -51,7 +53,7 @@ function App() {
         alert(e);
       });
     axios
-      .get(`http://localhost:8000/prize`)
+      .get(`https://singstal12345.pythonanywhere.com/prize`)
       .then((r) => {
         dispatch(setPrizes(r.data));
       })

@@ -58,7 +58,7 @@ export default function Cases() {
               disabled={el["price"] > balance}
               onClick={() => {
                 axios
-                  .post("http://localhost:8000/case/open", {
+                  .post("https://singstal12345.pythonanywhere.com/case/open", {
                     case_id: el["case_id"],
                     user_id: 664664,
                   })
@@ -81,7 +81,7 @@ export default function Cases() {
                     );
                     // транзакция успешна
                     return axios.get(
-                      `http://localhost:8000/balance/get/664664`
+                      `https://singstal12345.pythonanywhere.com/balance/get/664664`
                     );
                   })
                   .then((r2) => {
