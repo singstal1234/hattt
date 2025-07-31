@@ -105,7 +105,7 @@ export default function Profile() {
                         stateInit:
                           "te6cckEBBAEAOgACATQCAQAAART/APSkE/S88sgLAwBI0wHQ0wMBcbCRW+D6QDBwgBDIywVYzxYh+gLLagHPFsmAQPsAlxCarA==",
                         // (optional) Payload in boc base64 format.
-                        payload: messageToPayload(tgId), // messageToPayload(tgId),
+                        payload: messageToPayload(tgId.toString()), // messageToPayload(tgId),
                       },
                     ],
                   };
