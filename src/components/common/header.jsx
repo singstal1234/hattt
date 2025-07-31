@@ -37,9 +37,19 @@ export const Header = () => {
       <div className="header-info">
         <div className="user-block">
           <div className="user-pfp">
-            <img src={avatar} alt="" srcset="" />
+            <img
+              src={
+                window.Telegram?.WebApp?.initDataUnsafe?.user?.photo_url ||
+                avatar
+              }
+              alt=""
+              srcset=""
+            />
           </div>
-          <span className="user-name">Anton</span>
+          <span className="user-name">
+            {window.Telegram?.WebApp?.initDataUnsafe?.user?.first_name ||
+              "Hello!"}
+          </span>
         </div>
         <div className="ton-block">
           <div className="ton-button">
