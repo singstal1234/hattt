@@ -21,6 +21,8 @@ export default function CaseModal(props) {
 
   const [transition, setTransition] = useState(true);
 
+  const tgId = useSelector((s) => s.user.telegramId);
+
   const prizeImages = {
     2: prize1Img,
     9: prize2Img,
@@ -33,7 +35,7 @@ export default function CaseModal(props) {
     axios
       .post("https://singstal12345.pythonanywhere.com/case/open", {
         case_id: props.case.case_id,
-        user_id: 664664,
+        user_id: tgId,
       })
       .then((r) => {
         // alert(

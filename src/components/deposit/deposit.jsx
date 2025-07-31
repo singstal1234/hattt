@@ -9,7 +9,7 @@ export default function Deposit() {
   const [depositSum, setDepositSum] = useState(1);
   const [tonConnectUi] = useTonConnectUI();
   const wallet = useTonWallet();
-  const tgId = "664664";
+  const tgId = useSelector((s) => s.user.telegramId);
   const dispatch = useDispatch();
 
   tonConnectUi.uiOptions = {

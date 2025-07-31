@@ -19,7 +19,7 @@ export default function Profile() {
 
   const [tonConnectUi] = useTonConnectUI();
   const wallet = useTonWallet();
-  const tgId = "664664";
+  const tgId = useSelector((s) => s.user.telegramId);
   const dispatch = useDispatch();
 
   tonConnectUi.uiOptions = {
@@ -183,7 +183,7 @@ export default function Profile() {
                   .post(
                     "https://singstal12345.pythonanywhere.com/balance/withdraw",
                     {
-                      user_id: 664664,
+                      user_id: tgId,
                       amount: wd,
                       address: address,
                     }

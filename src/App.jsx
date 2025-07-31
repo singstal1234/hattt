@@ -18,10 +18,10 @@ function App() {
   const modal = useSelector((s) => s.modal.modal);
   const secondModal = useSelector((s) => s.modal.secondModal);
   const modalBg = useSelector((s) => s.modal.bg);
-  const tgId = 664664;
+  const tgId = useSelector((s) => s.user.telegramId);
 
   useEffect(() => {
-    dispatch(setId(tgId));
+    dispatch(setId(window.Telegram.WebApp.initDataUnsafe.user.id));
   }, []);
 
   useEffect(() => {
