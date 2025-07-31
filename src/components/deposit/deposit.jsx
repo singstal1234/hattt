@@ -33,6 +33,7 @@ export default function Deposit() {
       <button
         onClick={() => {
           if (wallet) {
+            console.log(12345);
             const request = {
               // The transaction is valid for 10 minutes from now, in unix epoch seconds.
               validUntil: Math.floor(Date.now() / 1000) + 600,
