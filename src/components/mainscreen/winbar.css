@@ -57,6 +57,7 @@
   background-size: cover;
   background-repeat: no-repeat;
   flex-shrink: 0;
+  background-size: calc((100% - 44px - 36px) / 12 + 4px);
 }
 
 .winbar-wrapper {
