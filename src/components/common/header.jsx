@@ -54,7 +54,7 @@ export const Header = () => {
             {wallet == null ? "Connect Wallet" : "Manage wallet"}
           </div>
           <div className="balance-block">
-            <span>{balance.toFixed(2)}</span>
+            <span>{balance == null ? "0.00" : balance.toFixed(2)}</span>
             <TonLogo color={"white"} />
           </div>
         </div>
