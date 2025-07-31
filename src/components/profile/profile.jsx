@@ -11,7 +11,7 @@ import { address } from "@ton/core";
 
 export default function Profile() {
   const [cat, setCat] = useState(0);
-  const [dep, setDep] = useState(0);
+  const [dep, setDep] = useState(1);
   const [wd, setWd] = useState(1);
   const [address, setAddress] = useState("");
 
