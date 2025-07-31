@@ -23,6 +23,8 @@ function App() {
   useEffect(() => {
     dispatch(setId(window.Telegram.WebApp.initDataUnsafe.user.id));
     console.log(window.Telegram.WebApp.initDataUnsafe.user.id);
+    console.log("hello!");
+    console.log("wassup?");
   }, []);
 
   useEffect(() => {

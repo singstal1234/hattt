@@ -98,7 +98,7 @@ export default function Profile() {
                       {
                         // The receiver's address.
                         address:
-                          "0QDizxkJIefhWv8PBXAEu3R1QZiZuruS5hNqckwvDnzd7HmK",
+                          "UQBA330gs8oPzdVflBslXwhmbPpGnB4H2InxzjwTw-kgi_8J",
                         // Amount to send in nanoTON. For example, 0.005 TON is 5000000 nanoTON.
                         amount: dep * 1_000_000_000,
                         // (optional) State initialization in boc base64 format.
