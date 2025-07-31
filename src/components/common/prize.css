@@ -30,6 +30,7 @@
 }
 
 .prize-image {
+  transform: scale(1.05);
   position: absolute;
   left: 0;
   top: 0;
