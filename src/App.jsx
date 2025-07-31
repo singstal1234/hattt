@@ -32,7 +32,8 @@ function App() {
           axios
             .get(`https://singstal12345.pythonanywhere.com/balance/get/${tgId}`)
             .then((r) => {
-              dispatch(setBalance(r.data));
+              if (r.data != null) dispatch(setBalance(r.data));
+              else dispatch(setBalance(0));
             })
             .catch((e) => {
               console.log(e);
