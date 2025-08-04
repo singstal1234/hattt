@@ -32,6 +32,8 @@ function App() {
       .post("https://singstal12345.pythonanywhere.com/balance/check-update")
       .then((_) => {
         setTimeout(() => {
+          console.log("Hello from setBalance!");
+          console.log("TG ID IS" + tgId);
           axios
             .get(`https://singstal12345.pythonanywhere.com/balance/get/${tgId}`)
             .then((r) => {
@@ -44,7 +46,7 @@ function App() {
             });
         }, 2000);
       });
-  }, []);
+  }, [tgId]);
 
   useEffect(() => {
     axios
