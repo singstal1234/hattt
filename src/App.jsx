@@ -39,7 +39,7 @@ function App() {
             .then((r) => {
               console.log(r);
               console.log(tgId);
-              if (r.data != null) dispatch(setBalance(r.data));
+              if (r.data != null && r.data != 0) dispatch(setBalance(r.data));
               else dispatch(setBalance(0));
             })
             .catch((e) => {
