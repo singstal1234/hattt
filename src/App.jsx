@@ -48,7 +48,7 @@ function App() {
             });
         }, 2000);
       });
-  }, [tgId]);
+  }, []);
 
   useEffect(() => {
     axios
