@@ -33,7 +33,7 @@ function App() {
       .then((_) => {
         setTimeout(() => {
           console.log("Hello from setBalance!");
-          console.log("TG ID IS" + tgId);
+          console.log("TG ID ISS" + tgId);
           axios
             .get(`https://singstal12345.pythonanywhere.com/balance/get/${tgId}`)
             .then((r) => {
