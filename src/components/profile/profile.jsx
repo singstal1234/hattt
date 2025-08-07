@@ -197,7 +197,7 @@ export default function Profile() {
                   {reward} TON
                 </div>
                 <button
-                  className="claim-button"
+                  className="claim-button1"
                   style={{
                     padding: "10px 20px",
                     backgroundColor: "#6c63ff",
