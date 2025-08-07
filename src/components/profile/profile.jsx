@@ -19,6 +19,7 @@ export default function Profile() {
 
   const balance = useSelector((s) => s.user.balance);
   const userId = useSelector((s) => s.user.telegramId);
+  const prizes = useSelector((s) => s.case.prizes);
 
   useEffect(() => {
     axios
@@ -234,7 +235,7 @@ export default function Profile() {
         <h2 className="profile-title">Last drop</h2>
 
         {data.map((el) => {
-          const prize = 
+          const prize = prizes.find((el) => el.prize_id == el[3]);
           return (
             <div
               key={el[0]}
@@ -258,13 +259,13 @@ export default function Profile() {
                   srcset=""
                   style={{ width: 42, height: 42, borderRadius: "6px" }}
                 />
-                <span>Name</span>
+                <span>{prize.name}</span>
               </div>
               <span
                 className="price-block"
                 style={{ alignItems: "center", alignContent: "center" }}
               >
-                123 <TonLogo color={"white"} />
+                {prize.price} <TonLogo color={"white"} />
               </span>
             </div>
           );
