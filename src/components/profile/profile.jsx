@@ -271,7 +271,8 @@ export default function Profile() {
                     width: 42,
                     height: 42,
                     borderRadius: "6px",
-                    transform: "scale(1.04)",
+                    // transform: "scale(1.04)",
+                    // overflow: "hidden",
                   }}
                 />
                 <span>{prize.name}</span>
