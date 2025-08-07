@@ -9,6 +9,7 @@ import axios from "axios";
 import { setBg, setModal, setSecondModal } from "../../store/slices/modalSlice";
 import { setBalance } from "../../store/slices/userSlice";
 import ClaimModal from "./claimModal";
+import Toggle from "../common/toggle";
 
 export default function CaseModal(props) {
   function getRandomInteger(min, max) {
@@ -23,10 +24,10 @@ export default function CaseModal(props) {
 
   const tgId = useSelector((s) => s.user.telegramId);
 
-  const prizeImages = {
-    2: prize1Img,
-    9: prize2Img,
-  };
+  // const prizeImages = {
+  //   2: prize1Img,
+  //   9: prize2Img,
+  // };
 
   const onCaseRoll = () => {
     console.log("rolling case");
@@ -92,7 +93,9 @@ export default function CaseModal(props) {
 
   const dispatch = useDispatch();
 
-  const [randomTimeout, setRandomTimeout] = useState(0); // вместо undefined
+  const [randomTimeout, setRandomTimeout] = useState(0); // вместо undefined\
+
+  const [demo, setDemo] = useState(false);
 
   const getRollButtonText = () => {
     if (isRolling) {
@@ -268,6 +271,10 @@ export default function CaseModal(props) {
       >
         {getRollButtonText()}
       </button>
+      <div className="demo-block">
+        <span>Demo Mode</span>
+        <Toggle />
+      </div>
       <div className="case-prizes">
         <span className="case-possible-prizes-text">Possible prizes:</span>
         <div className="case-possible-prizes">

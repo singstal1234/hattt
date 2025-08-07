@@ -104,3 +104,9 @@
   max-height: calc(77vh - 280px - 20px);
   border-radius: 8px 8px 0 0;
 }
+
+.demo-block {
+  display: flex;
+  padding: 5px 15px;
+  justify-content: space-between;
+}
