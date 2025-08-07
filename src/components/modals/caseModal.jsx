@@ -141,6 +141,9 @@ export default function CaseModal(props) {
     if (isRolling) {
       return "Rolling...";
     }
+    if (demo) {
+      return "Roll demo";
+    }
     if (balance < props.case.price) {
       return "Not enough money";
     }
@@ -306,7 +309,7 @@ export default function CaseModal(props) {
       </div>
       <button
         className="roll-button"
-        disabled={isRolling || !demo || balance < props.case.price}
+        disabled={demo ? isRolling : isRolling || balance < props.case.price}
         onClick={onCaseRoll}
       >
         {getRollButtonText()}
