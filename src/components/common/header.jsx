@@ -30,9 +30,9 @@ export const Header = () => {
   const balance = useSelector((s) => s.user.balance);
   return (
     <header>
-      <div className="header-logo">
+      {/* <div className="header-logo">
         <h2 className="header-logo-text">Cool Case</h2>
-      </div>
+      </div> */}
 
       <div className="header-info">
         <div className="user-block">
