@@ -207,7 +207,7 @@ export default function Profile() {
                     cursor: "pointer",
                     fontWeight: "bold",
                   }}
-                  disabled={reward <= 0}
+                  disabled={reward <= 0.000001}
                   onClick={() => {
                     axios
                       .post(

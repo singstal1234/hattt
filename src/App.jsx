@@ -26,6 +26,7 @@ function App() {
     console.log(window.Telegram.WebApp.initDataUnsafe.user.id);
     console.log("hello!");
     console.log("wassup?");
+    console.log("52!");
     // dispatch(setId(664664));
   }, []);
 
