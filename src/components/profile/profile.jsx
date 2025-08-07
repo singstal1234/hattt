@@ -247,6 +247,7 @@ export default function Profile() {
               style={{
                 display: "flex",
                 justifyContent: "space-between",
+                width: "100%",
                 alignItems: "center",
                 alignContent: "center",
               }}
