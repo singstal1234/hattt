@@ -10,7 +10,7 @@ import axios from "axios";
 import { address } from "@ton/core";
 
 export default function Profile() {
-  const [data, setData] = useState(null);
+  const [data, setData] = useState([]);
   const [isDepWindow, setIsDepWindow] = useState(false);
   const [cat, setCat] = useState(0);
   const [dep, setDep] = useState(1);
