@@ -235,7 +235,7 @@ export default function Profile() {
         <h2 className="profile-title">Last drop</h2>
 
         {data.map((el) => {
-          const prize = prizes.find((el) => el.prize_id == el[3]);
+          const prize = prizes.find((el1) => el1.prize_id == el[3]);
           console.log(prize);
           console.log(prizes);
           if (prize == null || prize == undefined) return <></>;
