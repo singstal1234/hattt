@@ -74,16 +74,12 @@ export default function Profile() {
         }
       });
     axios
-      .get(
-        `https://singstal12345.pythonanywhere.com/balance/refferal/count/${userId}`
-      )
+      .get(`https://singstal12345.pythonanywhere.com/refferal/count/${userId}`)
       .then((r) => {
         setRefs(r.data);
       });
     axios
-      .get(
-        `https://singstal12345.pythonanywhere.com/balance/balance/reward/${userId}`
-      )
+      .get(`https://singstal12345.pythonanywhere.com/balance/reward/${userId}`)
       .then((r) => {
         setReward(r.data);
       });
