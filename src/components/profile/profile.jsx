@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { use, useEffect, useState } from "react";
 import "./profile.css";
 import avatar from "./../../assets/avatar.jpg";
 import { TonLogo } from "../common/header.jsx";
@@ -10,6 +10,7 @@ import axios from "axios";
 import { address } from "@ton/core";
 
 export default function Profile() {
+  const [data, setData] = useState(null);
   const [isDepWindow, setIsDepWindow] = useState(false);
   const [cat, setCat] = useState(0);
   const [dep, setDep] = useState(1);
@@ -17,6 +18,19 @@ export default function Profile() {
   const [address, setAddress] = useState("");
 
   const balance = useSelector((s) => s.user.balance);
+  const userId = useSelector((s) => s.user.telegramId);
+
+  useEffect(() => {
+    axios
+      .get(`https://singstal12345.pythonanywhere.com/balance/rolls/${userId}`)
+      .then((r) => {
+        if (r.data == null) {
+          setData([]);
+        } else {
+          setData(r.data);
+        }
+      });
+  }, []);
 
   const [tonConnectUi] = useTonConnectUI();
   const wallet = useTonWallet();
@@ -218,29 +232,57 @@ export default function Profile() {
       )}
       <div className="last-rolls">
         <h2 className="profile-title">Last drop</h2>
-        <div
-          className="last-roll"
-          style={{ display: "flex", justifyContent: "space-between" }}
-        >
-          <div className="text-block">
-            <img
-              src={avatar}
-              alt=""
-              srcset=""
-              style={{ width: 42, height: 42, borderRadius: "6px" }}
-            />
-            <span>Name</span>
-          </div>
-          <span className="price-block">
-            123 <TonLogo color={"white"} />
-          </span>
-        </div>
+
+        {data.map((el) => {
+          const prize = 
+          return (
+            <div
+              key={el[0]}
+              className="last-roll"
+              style={{
+                display: "flex",
+                justifyContent: "space-between",
+                alignItems: "center",
+                alignContent: "center",
+              }}
+            >
+              <div
+                className="text-block"
+                style={{ alignItems: "center", alignContent: "center" }}
+              >
+                <img
+                  src={`https://singstal12345.pythonanywhere.com/photo/prize?prize_id=${
+                    el[3]
+                  }&t=${Date.now()}`}
+                  alt=""
+                  srcset=""
+                  style={{ width: 42, height: 42, borderRadius: "6px" }}
+                />
+                <span>Name</span>
+              </div>
+              <span
+                className="price-block"
+                style={{ alignItems: "center", alignContent: "center" }}
+              >
+                123 <TonLogo color={"white"} />
+              </span>
+            </div>
+          );
+        })}
 
         <div
           className="last-roll"
-          style={{ display: "flex", justifyContent: "space-between" }}
+          style={{
+            display: "flex",
+            justifyContent: "space-between",
+            alignItems: "center",
+            alignContent: "center",
+          }}
         >
-          <div className="text-block">
+          <div
+            className="text-block"
+            style={{ alignItems: "center", alignContent: "center" }}
+          >
             <img
               src={avatar}
               alt=""
@@ -249,25 +291,10 @@ export default function Profile() {
             />
             <span>Name</span>
           </div>
-          <span className="price-block">
-            123 <TonLogo color={"white"} />
-          </span>
-        </div>
-
-        <div
-          className="last-roll"
-          style={{ display: "flex", justifyContent: "space-between" }}
-        >
-          <div className="text-block">
-            <img
-              src={avatar}
-              alt=""
-              srcset=""
-              style={{ width: 42, height: 42, borderRadius: "6px" }}
-            />
-            <span>Name</span>
-          </div>
-          <span className="price-block">
+          <span
+            className="price-block"
+            style={{ alignItems: "center", alignContent: "center" }}
+          >
             123 <TonLogo color={"white"} />
           </span>
         </div>
