@@ -253,7 +253,11 @@ export default function Profile() {
             >
               <div
                 className="text-block"
-                style={{ alignItems: "center", alignContent: "center" }}
+                style={{
+                  display: "flex",
+                  alignItems: "center",
+                  alignContent: "center",
+                }}
               >
                 <img
                   src={`https://singstal12345.pythonanywhere.com/photo/prize?prize_id=${
