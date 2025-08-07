@@ -71,6 +71,9 @@
   background-color: #18181c;
   margin-top: 18px;
 }
+.claim-button:disabled {
+  background-color: #19191d;
+}
 .last-rolls {
   padding: 11px 11px 80px;
   justify-content: flex-start;

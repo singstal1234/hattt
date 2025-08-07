@@ -25,6 +25,19 @@ export default function Profile() {
     if (refs >= 1) return 1;
     return 0;
   };
+  const getPercentage = (refs) => {
+    if (refs >= 200) return 30;
+    if (refs >= 150) return 27;
+    if (refs >= 100) return 24;
+    if (refs >= 75) return 20;
+    if (refs >= 50) return 16;
+    if (refs >= 30) return 12;
+    if (refs >= 20) return 8;
+    if (refs >= 10) return 5;
+    if (refs >= 5) return 3;
+    if (refs >= 1) return 1;
+    return 0;
+  };
   const getMaxRefs = (refs) => {
     if (refs >= 200) return -1;
     if (refs >= 150) return 200;
@@ -124,7 +137,8 @@ export default function Profile() {
                 }}
               >
                 <span>
-                  Refs: {refs} {getMaxRefs(refs) == -1 ? "" : `/${getMaxRefs}`}
+                  Refs: {refs}{" "}
+                  {getMaxRefs(refs) == -1 ? "" : `/${getMaxRefs(refs)}`}
                 </span>
                 <span>Lvl: {getLevel(refs)}</span>
               </div>
@@ -187,6 +201,7 @@ export default function Profile() {
                   {reward} TON
                 </div>
                 <button
+                  className="claim-button"
                   style={{
                     padding: "10px 20px",
                     backgroundColor: "#6c63ff",
@@ -195,6 +210,14 @@ export default function Profile() {
                     borderRadius: "10px",
                     cursor: "pointer",
                     fontWeight: "bold",
+                  }}
+                  disabled={reward <= 0}
+                  onClick={() => {
+                    dispatch(setBalance(balance + reward));
+                    setReward(0);
+                    axios.post(
+                      `https://singstal12345.pythonanywhere.com/balance/claim/${telegramId}`
+                    );
                   }}
                 >
                   Claim
@@ -224,7 +247,7 @@ export default function Profile() {
                 style={{
                   backgroundColor: "#000",
                   borderRadius: "10px",
-                  padding: "10px",
+                  padding: "20px",
                   flex: 1,
                   flexGrow: 1,
                   display: "flex",
@@ -242,7 +265,7 @@ export default function Profile() {
                     marginBottom: "10px",
                   }}
                 >
-                  23%
+                  {getPercentage(refs)}%
                 </div>
                 <button
                   style={{
