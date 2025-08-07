@@ -104,7 +104,7 @@
   gap: 15px;
   align-items: flex-start;
   gap: 15px;
-  overflow-y: scroll;
+  overflow: scroll;
   margin-top: 5px;
   max-height: calc(77vh - 280px - 20px);
   border-radius: 8px 8px 0 0;
