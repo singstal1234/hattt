@@ -133,7 +133,7 @@ export default function Profile() {
                 }}
               >
                 <span>
-                  Refs: {refs}{" "}
+                  Refs: {refs}
                   {getMaxRefs(refs) == -1 ? "" : `/${getMaxRefs(refs)}`}
                 </span>
                 <span>Lvl: {getLevel(refs)}</span>
