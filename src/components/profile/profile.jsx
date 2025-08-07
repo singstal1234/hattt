@@ -209,11 +209,14 @@ export default function Profile() {
                   }}
                   disabled={reward <= 0}
                   onClick={() => {
-                    dispatch(setBalance(balance + reward));
-                    setReward(0);
-                    axios.post(
-                      `https://singstal12345.pythonanywhere.com/balance/claim/${telegramId}`
-                    );
+                    axios
+                      .post(
+                        `https://singstal12345.pythonanywhere.com/balance/claim/${telegramId}`
+                      )
+                      .then((r) => {
+                        dispatch(setBalance(balance + reward));
+                        setReward(0);
+                      });
                   }}
                 >
                   Claim
