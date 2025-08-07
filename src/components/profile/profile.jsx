@@ -281,7 +281,7 @@ export default function Profile() {
           );
         })}
 
-        <div
+        {/* <div
           className="last-roll"
           style={{
             display: "flex",
@@ -308,7 +308,7 @@ export default function Profile() {
           >
             123 <TonLogo color={"white"} />
           </span>
-        </div>
+        </div> */}
       </div>
     </div>
   );
