@@ -267,7 +267,12 @@ export default function Profile() {
                   }&t=${Date.now()}`}
                   alt=""
                   srcset=""
-                  style={{ width: 42, height: 42, borderRadius: "6px" }}
+                  style={{
+                    width: 42,
+                    height: 42,
+                    borderRadius: "6px",
+                    transform: "scale(1.04)",
+                  }}
                 />
                 <span>{prize.name}</span>
               </div>
