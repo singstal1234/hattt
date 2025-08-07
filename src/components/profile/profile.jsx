@@ -216,6 +216,62 @@ export default function Profile() {
           )}
         </div>
       )}
+      <div className="last-rolls">
+        <h2 className="profile-title">Last drop</h2>
+        <div
+          className="last-roll"
+          style={{ display: "flex", justifyContent: "space-between" }}
+        >
+          <div className="text-block">
+            <img
+              src={avatar}
+              alt=""
+              srcset=""
+              style={{ width: 42, height: 42, borderRadius: "6px" }}
+            />
+            <span>Name</span>
+          </div>
+          <span className="price-block">
+            123 <TonLogo color={"white"} />
+          </span>
+        </div>
+
+        <div
+          className="last-roll"
+          style={{ display: "flex", justifyContent: "space-between" }}
+        >
+          <div className="text-block">
+            <img
+              src={avatar}
+              alt=""
+              srcset=""
+              style={{ width: 42, height: 42, borderRadius: "6px" }}
+            />
+            <span>Name</span>
+          </div>
+          <span className="price-block">
+            123 <TonLogo color={"white"} />
+          </span>
+        </div>
+
+        <div
+          className="last-roll"
+          style={{ display: "flex", justifyContent: "space-between" }}
+        >
+          <div className="text-block">
+            <img
+              src={avatar}
+              alt=""
+              srcset=""
+              style={{ width: 42, height: 42, borderRadius: "6px" }}
+            />
+            <span>Name</span>
+          </div>
+          <span className="price-block">
+            123 <TonLogo color={"white"} />
+          </span>
+        </div>
+      </div>
     </div>
   );
 }

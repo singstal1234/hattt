@@ -57,7 +57,8 @@
 }
 .info-blocks {
 }
-.balance {
+.balance,
+.last-rolls {
   display: flex;
   justify-content: space-between;
   padding: 11px;
