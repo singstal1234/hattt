@@ -257,6 +257,7 @@ export default function Profile() {
                   display: "flex",
                   alignItems: "center",
                   alignContent: "center",
+                  gap: 4,
                 }}
               >
                 <img
