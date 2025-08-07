@@ -107,6 +107,9 @@
 
 .demo-block {
   display: flex;
-  padding: 5px 15px;
+  padding: 20px 15px 5px;
   justify-content: space-between;
+  color: white;
+  font-family: Inter, sans-serif;
+  font-size: 12px;
 }
