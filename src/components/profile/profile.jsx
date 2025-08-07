@@ -128,7 +128,7 @@ export default function Profile() {
                 </div>
                 <div
                   style={{
-                    fontSize: "28px",
+                    fontSize: "12px",
                     fontWeight: "bold",
                     marginBottom: "10px",
                   }}
@@ -163,7 +163,7 @@ export default function Profile() {
                 <div style={{ marginBottom: "5px", fontWeight: "bold" }}>
                   Total Earned
                 </div>
-                <div style={{ fontSize: "28px", fontWeight: "bold" }}>
+                <div style={{ fontSize: "12px", fontWeight: "bold" }}>
                   4332 Ton
                 </div>
               </div>
@@ -172,8 +172,8 @@ export default function Profile() {
               <div
                 style={{
                   backgroundColor: "#000",
-                  borderRadius: "20px",
-                  padding: "20px",
+                  borderRadius: "10px",
+                  padding: "10px",
                   flex: 1,
                   minWidth: "200px",
                 }}
@@ -183,7 +183,7 @@ export default function Profile() {
                 </div>
                 <div
                   style={{
-                    fontSize: "28px",
+                    fontSize: "12px",
                     fontWeight: "bold",
                     marginBottom: "10px",
                   }}
