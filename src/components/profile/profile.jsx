@@ -48,173 +48,162 @@ export default function Profile() {
       {!isDepWindow && (
         <>
           <div className="user-info">
-            <img
-              src={
-                window.Telegram?.WebApp?.initDataUnsafe?.user?.photo_url ||
-                avatar
-              }
-              alt=""
-              srcset=""
-            />
-            <span>
-              {window.Telegram?.WebApp?.initDataUnsafe?.user?.first_name ||
-                "Hello!"}
-            </span>
-          </div>
-          <div
-            style={{
-              display: "flex",
-              alignItems: "center",
-              justifyContent: "center",
-              gap: "20px",
-            }}
-          >
-            <img
-              src="https://i.imgur.com/2qAdLkL.png" // или подставь свою ссылку
-              alt="Avatar"
+            <div
               style={{
-                width: "80px",
-                height: "80px",
-                borderRadius: "50%",
-                objectFit: "cover",
+                display: "flex",
+                alignItems: "center",
+                justifyContent: "center",
+                gap: "20px",
               }}
-            />
-            <span style={{ fontSize: "24px" }}>Шляпа</span>
-          </div>
+            >
+              <img
+                src={
+                  window.Telegram?.WebApp?.initDataUnsafe?.user?.photo_url ||
+                  avatar
+                }
+                alt=""
+                srcset=""
+              />
+              <span>
+                {window.Telegram?.WebApp?.initDataUnsafe?.user?.first_name ||
+                  "Hello!"}
+              </span>
+            </div>
 
-          <div style={{ marginTop: "20px" }}>
+            <div style={{ marginTop: "20px" }}>
+              <div
+                style={{
+                  display: "flex",
+                  justifyContent: "space-between",
+                  fontSize: "16px",
+                  marginBottom: "5px",
+                }}
+              >
+                <span>XP: 112/400</span>
+                <span>Lvl: 2</span>
+              </div>
+              <div
+                style={{
+                  backgroundColor: "#000",
+                  height: "20px",
+                  borderRadius: "10px",
+                  overflow: "hidden",
+                }}
+              >
+                <div
+                  style={{
+                    height: "100%",
+                    width: `${(112 / 400) * 100}%`,
+                    backgroundColor: "#6c63ff",
+                    transition: "width 0.3s ease",
+                  }}
+                ></div>
+              </div>
+            </div>
+
             <div
               style={{
                 display: "flex",
                 justifyContent: "space-between",
-                fontSize: "16px",
-                marginBottom: "5px",
+                marginTop: "40px",
+                gap: "20px",
+                flexWrap: "wrap",
               }}
             >
-              <span>XP: 112/400</span>
-              <span>Lvl: 2</span>
-            </div>
-            <div
-              style={{
-                backgroundColor: "#000",
-                height: "20px",
-                borderRadius: "10px",
-                overflow: "hidden",
-              }}
-            >
+              {/* Referrals */}
               <div
                 style={{
-                  height: "100%",
-                  width: `${(112 / 400) * 100}%`,
-                  backgroundColor: "#6c63ff",
-                  transition: "width 0.3s ease",
+                  backgroundColor: "#000",
+                  borderRadius: "20px",
+                  padding: "20px",
+                  flex: 1,
+                  minWidth: "200px",
                 }}
-              ></div>
-            </div>
-          </div>
+              >
+                <div style={{ marginBottom: "5px", fontWeight: "bold" }}>
+                  Referrals
+                </div>
+                <div style={{ fontSize: "14px", marginBottom: "10px" }}>
+                  Your referrals: 3
+                </div>
+                <div
+                  style={{
+                    fontSize: "28px",
+                    fontWeight: "bold",
+                    marginBottom: "10px",
+                  }}
+                >
+                  43.3 Ton
+                </div>
+                <button
+                  style={{
+                    padding: "10px 20px",
+                    backgroundColor: "#6c63ff",
+                    color: "#fff",
+                    border: "none",
+                    borderRadius: "10px",
+                    cursor: "pointer",
+                    fontWeight: "bold",
+                  }}
+                >
+                  Claim
+                </button>
+              </div>
 
-          <div
-            style={{
-              display: "flex",
-              justifyContent: "space-between",
-              marginTop: "40px",
-              gap: "20px",
-              flexWrap: "wrap",
-            }}
-          >
-            {/* Referrals */}
-            <div
-              style={{
-                backgroundColor: "#000",
-                borderRadius: "20px",
-                padding: "20px",
-                flex: 1,
-                minWidth: "200px",
-              }}
-            >
-              <div style={{ marginBottom: "5px", fontWeight: "bold" }}>
-                Referrals
-              </div>
-              <div style={{ fontSize: "14px", marginBottom: "10px" }}>
-                Your referrals: 3
-              </div>
+              {/* Total Earned */}
               <div
                 style={{
-                  fontSize: "28px",
-                  fontWeight: "bold",
-                  marginBottom: "10px",
+                  backgroundColor: "#000",
+                  borderRadius: "20px",
+                  padding: "20px",
+                  flex: 1,
+                  minWidth: "200px",
                 }}
               >
-                43.3 Ton
+                <div style={{ marginBottom: "5px", fontWeight: "bold" }}>
+                  Total Earned
+                </div>
+                <div style={{ fontSize: "28px", fontWeight: "bold" }}>
+                  4332 Ton
+                </div>
               </div>
-              <button
-                style={{
-                  padding: "10px 20px",
-                  backgroundColor: "#6c63ff",
-                  color: "#fff",
-                  border: "none",
-                  borderRadius: "10px",
-                  cursor: "pointer",
-                  fontWeight: "bold",
-                }}
-              >
-                Claim
-              </button>
-            </div>
 
-            {/* Total Earned */}
-            <div
-              style={{
-                backgroundColor: "#000",
-                borderRadius: "20px",
-                padding: "20px",
-                flex: 1,
-                minWidth: "200px",
-              }}
-            >
-              <div style={{ marginBottom: "5px", fontWeight: "bold" }}>
-                Total Earned
-              </div>
-              <div style={{ fontSize: "28px", fontWeight: "bold" }}>
-                4332 Ton
-              </div>
-            </div>
-
-            {/* Referral Rank */}
-            <div
-              style={{
-                backgroundColor: "#000",
-                borderRadius: "20px",
-                padding: "20px",
-                flex: 1,
-                minWidth: "200px",
-              }}
-            >
-              <div style={{ marginBottom: "5px", fontWeight: "bold" }}>
-                Referral Rank
-              </div>
+              {/* Referral Rank */}
               <div
                 style={{
-                  fontSize: "28px",
-                  fontWeight: "bold",
-                  marginBottom: "10px",
+                  backgroundColor: "#000",
+                  borderRadius: "20px",
+                  padding: "20px",
+                  flex: 1,
+                  minWidth: "200px",
                 }}
               >
-                23%
+                <div style={{ marginBottom: "5px", fontWeight: "bold" }}>
+                  Referral Rank
+                </div>
+                <div
+                  style={{
+                    fontSize: "28px",
+                    fontWeight: "bold",
+                    marginBottom: "10px",
+                  }}
+                >
+                  23%
+                </div>
+                <button
+                  style={{
+                    padding: "10px 20px",
+                    backgroundColor: "#6c63ff",
+                    color: "#fff",
+                    border: "none",
+                    borderRadius: "10px",
+                    cursor: "pointer",
+                    fontWeight: "bold",
+                  }}
+                >
+                  More Info
+                </button>
               </div>
-              <button
-                style={{
-                  padding: "10px 20px",
-                  backgroundColor: "#6c63ff",
-                  color: "#fff",
-                  border: "none",
-                  borderRadius: "10px",
-                  cursor: "pointer",
-                  fontWeight: "bold",
-                }}
-              >
-                More Info
-              </button>
             </div>
           </div>
           <div className="balance">
