@@ -1,9 +1,10 @@
 import React, { useState } from "react";
 
-const Toggle = () => {
+const Toggle = (props) => {
   const [isActive, setIsActive] = useState(false);
 
   const toggle = () => {
+    props.setDemo(!isActive);
     setIsActive(!isActive);
   };
 

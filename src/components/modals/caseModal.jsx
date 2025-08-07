@@ -32,51 +32,91 @@ export default function CaseModal(props) {
   const onCaseRoll = () => {
     console.log("rolling case");
     setIsRolling(true);
-    dispatch(setBalance(balance - props.case.price));
-    axios
-      .post("https://singstal12345.pythonanywhere.com/case/open", {
-        case_id: props.case.case_id,
-        user_id: tgId,
-      })
-      .then((r) => {
-        // alert(
-        //   `Вы выиграли приз ${r.data.prize.prize_id}. ${r.data.prize.name} за ${r.data.prize.price} TON!`
-        // );
-        const prize_id = r.data.prize.prize_id;
-        const prize_ids = [];
-        for (let i = 0; i < props.case.prizes.length; i++) {
-          prize_ids.push(props.case.prizes[i].prize_id);
-        }
-        console.log(prize_ids);
-        const prize_index = prize_ids.indexOf(prize_id);
-        console.log(prize_index);
-        const randomTimeout = getRandomInteger(7000, 10000);
-        setTransition(true);
-        setRandomTimeout(randomTimeout);
-        const randomNum =
-          getRandomInteger(30, 43) * casePrizes.length + prize_index;
-        setIndexToScroll(randomNum);
-        const randomOffset = getRandomInteger(1, 86);
-        setRandomOffset(randomOffset);
-        setLeft(-randomNum * 87 - 4 * (randomNum - 0.5) - randomOffset);
-        setTimeout(() => {
-          setTransition(false);
-          setIsRolling(false);
-          setIndexToScroll(casePrizes.length * 4 + prize_index);
-          const initialIndex = casePrizes.length * 4 + prize_index;
-          setLeft(-initialIndex * 87 - 4 * (initialIndex - 0.5) - randomOffset);
-          dispatch(
-            setSecondModal(
-              <ClaimModal
-                price={r.data.prize.price}
-                image={`https://singstal12345.pythonanywhere.com/photo/prize?prize_id=${
-                  r.data.prize.prize_id
-                }&t=${Date.now()}`}
-              />
-            )
-          );
-        }, randomTimeout + 1000);
-      });
+    if (!demo) {
+      dispatch(setBalance(balance - props.case.price));
+
+      axios
+        .post("https://singstal12345.pythonanywhere.com/case/open", {
+          case_id: props.case.case_id,
+          user_id: tgId,
+        })
+        .then((r) => {
+          // alert(
+          //   `Вы выиграли приз ${r.data.prize.prize_id}. ${r.data.prize.name} за ${r.data.prize.price} TON!`
+          // );
+          const prize_id = r.data.prize.prize_id;
+          const prize_ids = [];
+          for (let i = 0; i < props.case.prizes.length; i++) {
+            prize_ids.push(props.case.prizes[i].prize_id);
+          }
+          console.log(prize_ids);
+          const prize_index = prize_ids.indexOf(prize_id);
+          console.log(prize_index);
+          const randomTimeout = getRandomInteger(7000, 10000);
+          setTransition(true);
+          setRandomTimeout(randomTimeout);
+          const randomNum =
+            getRandomInteger(30, 43) * casePrizes.length + prize_index;
+          setIndexToScroll(randomNum);
+          const randomOffset = getRandomInteger(1, 86);
+          setRandomOffset(randomOffset);
+          setLeft(-randomNum * 87 - 4 * (randomNum - 0.5) - randomOffset);
+          setTimeout(() => {
+            setTransition(false);
+            setIsRolling(false);
+            setIndexToScroll(casePrizes.length * 4 + prize_index);
+            const initialIndex = casePrizes.length * 4 + prize_index;
+            setLeft(
+              -initialIndex * 87 - 4 * (initialIndex - 0.5) - randomOffset
+            );
+            dispatch(
+              setSecondModal(
+                <ClaimModal
+                  price={r.data.prize.price}
+                  image={`https://singstal12345.pythonanywhere.com/photo/prize?prize_id=${
+                    r.data.prize.prize_id
+                  }&t=${Date.now()}`}
+                />
+              )
+            );
+          }, randomTimeout + 1000);
+        });
+    } else {
+      const prize_ids = [];
+      for (let i = 0; i < props.case.prizes.length; i++) {
+        prize_ids.push(props.case.prizes[i].prize_id);
+      }
+      const prize_id = prize_ids[getRandomInteger(0, prize_ids.length - 1)];
+      console.log(prize_ids);
+      const prize_index = prize_ids.indexOf(prize_id);
+      console.log(prize_index);
+      const randomTimeout = getRandomInteger(7000, 10000);
+      setTransition(true);
+      setRandomTimeout(randomTimeout);
+      const randomNum =
+        getRandomInteger(30, 43) * casePrizes.length + prize_index;
+      setIndexToScroll(randomNum);
+      const randomOffset = getRandomInteger(1, 86);
+      setRandomOffset(randomOffset);
+      setLeft(-randomNum * 87 - 4 * (randomNum - 0.5) - randomOffset);
+      setTimeout(() => {
+        setTransition(false);
+        setIsRolling(false);
+        setIndexToScroll(casePrizes.length * 4 + prize_index);
+        const initialIndex = casePrizes.length * 4 + prize_index;
+        setLeft(-initialIndex * 87 - 4 * (initialIndex - 0.5) - randomOffset);
+        dispatch(
+          setSecondModal(
+            <ClaimModal
+              price={r.data.prize.price}
+              image={`https://singstal12345.pythonanywhere.com/photo/prize?prize_id=${
+                r.data.prize.prize_id
+              }&t=${Date.now()}`}
+            />
+          )
+        );
+      }, randomTimeout + 1000);
+    }
   };
   const [prizes, setPrizes] = useState([]);
   const [casePrizes, setCasePrizes] = useState([]);
@@ -273,7 +313,7 @@ export default function CaseModal(props) {
       </button>
       <div className="demo-block">
         <span>Demo Mode</span>
-        <Toggle />
+        <Toggle setDemo={setDemo} />
       </div>
       <div className="case-prizes">
         <span className="case-possible-prizes-text">Possible prizes:</span>
