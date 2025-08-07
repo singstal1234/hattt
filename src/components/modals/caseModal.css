@@ -99,12 +99,11 @@
   font-family: Inter, sans-serif;
 }
 .case-possible-prizes {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 15px;
+  display: flex;
+  flex-wrap: wrap;
   align-items: flex-start;
   gap: 15px;
-  overflow: scroll;
+  overflow-y: scroll;
   margin-top: 5px;
   max-height: calc(77vh - 280px - 20px);
   border-radius: 8px 8px 0 0;
