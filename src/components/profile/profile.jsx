@@ -236,7 +236,7 @@ export default function Profile() {
 
         {data.map((el) => {
           const prize = prizes.find((el) => el.prize_id == el[3]);
-          if (prize == null) return <></>;
+          if (prize == null || prize == undefined) return <></>;
           return (
             <div
               key={el[0]}
