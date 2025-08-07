@@ -47,8 +47,9 @@ export default function Profile() {
       <h2 className="profile-title">Profile</h2>
       {!isDepWindow && (
         <>
-          <div className="user-info">
+          <div>
             <div
+              className="user-info"
               style={{
                 display: "flex",
                 alignItems: "center",
@@ -75,7 +76,7 @@ export default function Profile() {
                 style={{
                   display: "flex",
                   justifyContent: "space-between",
-                  fontSize: "16px",
+                  fontSize: "9px",
                   marginBottom: "5px",
                 }}
               >
@@ -123,7 +124,7 @@ export default function Profile() {
                 <div style={{ marginBottom: "5px", fontWeight: "bold" }}>
                   Referrals
                 </div>
-                <div style={{ fontSize: "14px", marginBottom: "10px" }}>
+                <div style={{ fontSize: "11px", marginBottom: "10px" }}>
                   Your referrals: 3
                 </div>
                 <div
