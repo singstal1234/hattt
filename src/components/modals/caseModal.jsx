@@ -306,7 +306,7 @@ export default function CaseModal(props) {
       </div>
       <button
         className="roll-button"
-        disabled={isRolling || balance < props.case.price}
+        disabled={isRolling || !demo || balance < props.case.price}
         onClick={onCaseRoll}
       >
         {getRollButtonText()}
