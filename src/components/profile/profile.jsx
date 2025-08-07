@@ -108,7 +108,6 @@ export default function Profile() {
                 justifyContent: "space-between",
                 marginTop: "40px",
                 gap: "20px",
-                flexWrap: "wrap",
               }}
             >
               {/* Referrals */}
@@ -118,7 +117,10 @@ export default function Profile() {
                   borderRadius: "20px",
                   padding: "20px",
                   flex: 1,
-                  minWidth: "200px",
+                  flexGrow: 1,
+                  display: "flex",
+                  justifyContent: "flex-end",
+                  flexDirection: "column",
                 }}
               >
                 <div style={{ marginBottom: "5px", fontWeight: "bold" }}>
@@ -158,7 +160,7 @@ export default function Profile() {
                   borderRadius: "20px",
                   padding: "20px",
                   flex: 1,
-                  minWidth: "200px",
+                  flexGrow: 1,
                 }}
               >
                 <div style={{ marginBottom: "5px", fontWeight: "bold" }}>
@@ -176,7 +178,10 @@ export default function Profile() {
                   borderRadius: "10px",
                   padding: "10px",
                   flex: 1,
-                  minWidth: "200px",
+                  flexGrow: 1,
+                  display: "flex",
+                  justifyContent: "flex-end",
+                  flexDirection: "column",
                 }}
               >
                 <div style={{ marginBottom: "5px", fontWeight: "bold" }}>
