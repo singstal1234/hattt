@@ -10,6 +10,35 @@ import axios from "axios";
 import { address } from "@ton/core";
 
 export default function Profile() {
+  const [refs, setRefs] = useState(0);
+  const [reward, setReward] = useState(0);
+  const getLevel = (refs) => {
+    if (refs >= 200) return 10;
+    if (refs >= 150) return 9;
+    if (refs >= 100) return 8;
+    if (refs >= 75) return 7;
+    if (refs >= 50) return 6;
+    if (refs >= 30) return 5;
+    if (refs >= 20) return 4;
+    if (refs >= 10) return 3;
+    if (refs >= 5) return 2;
+    if (refs >= 1) return 1;
+    return 0;
+  };
+  const getMaxRefs = (refs) => {
+    if (refs >= 200) return -1;
+    if (refs >= 150) return 200;
+    if (refs >= 100) return 150;
+    if (refs >= 75) return 100;
+    if (refs >= 50) return 75;
+    if (refs >= 30) return 50;
+    if (refs >= 20) return 30;
+    if (refs >= 10) return 20;
+    if (refs >= 5) return 10;
+    if (refs >= 1) return 5;
+    return 1;
+  };
+
   const [data, setData] = useState([]);
   const [isDepWindow, setIsDepWindow] = useState(false);
   const [cat, setCat] = useState(0);
@@ -31,6 +60,20 @@ export default function Profile() {
           setData(r.data);
         }
       });
+    axios
+      .get(
+        `https://singstal12345.pythonanywhere.com/balance/refferal/count/${userId}`
+      )
+      .then((r) => {
+        setRefs(r.data);
+      });
+    axios
+      .get(
+        `https://singstal12345.pythonanywhere.com/balance/balance/reward/${userId}`
+      )
+      .then((r) => {
+        setReward(r.data);
+      });
   }, []);
 
   const [tonConnectUi] = useTonConnectUI();
@@ -47,7 +90,7 @@ export default function Profile() {
       <h2 className="profile-title">Profile</h2>
       {!isDepWindow && (
         <>
-          <div>
+          <div className="profile-info">
             <div
               className="user-info"
               style={{
@@ -80,8 +123,10 @@ export default function Profile() {
                   marginBottom: "5px",
                 }}
               >
-                <span>XP: 112/400</span>
-                <span>Lvl: 2</span>
+                <span>
+                  Refs: {refs} {getMaxRefs(refs) == -1 ? "" : `/${getMaxRefs}`}
+                </span>
+                <span>Lvl: {getLevel(refs)}</span>
               </div>
               <div
                 style={{
@@ -94,7 +139,10 @@ export default function Profile() {
                 <div
                   style={{
                     height: "100%",
-                    width: `${(112 / 400) * 100}%`,
+                    width:
+                      getLevel(refs) == 10
+                        ? "100%"
+                        : `${(refs / getMaxRefs(refs)) * 100}%`,
                     backgroundColor: "#6c63ff",
                     transition: "width 0.3s ease",
                   }}
@@ -127,7 +175,7 @@ export default function Profile() {
                   Referrals
                 </div>
                 <div style={{ fontSize: "11px", marginBottom: "10px" }}>
-                  Your referrals: 3
+                  Your referrals: {refs}
                 </div>
                 <div
                   style={{
@@ -136,7 +184,7 @@ export default function Profile() {
                     marginBottom: "10px",
                   }}
                 >
-                  43.3 Ton
+                  {reward} TON
                 </div>
                 <button
                   style={{
@@ -154,7 +202,7 @@ export default function Profile() {
               </div>
 
               {/* Total Earned */}
-              <div
+              {/* <div
                 style={{
                   backgroundColor: "#000",
                   borderRadius: "20px",
@@ -166,10 +214,10 @@ export default function Profile() {
                 <div style={{ marginBottom: "5px", fontWeight: "bold" }}>
                   Total Earned
                 </div>
-                <div style={{ fontSize: "12px", fontWeight: "bold" }}>
+                <div style={{ fontSize: "px", fontWeight: "bold" }}>
                   4332 Ton
                 </div>
-              </div>
+              </div> */}
 
               {/* Referral Rank */}
               <div
