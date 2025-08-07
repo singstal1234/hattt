@@ -72,6 +72,7 @@ export default function CaseModal(props) {
             dispatch(
               setSecondModal(
                 <ClaimModal
+                  demo={false}
                   price={r.data.prize.price}
                   image={`https://singstal12345.pythonanywhere.com/photo/prize?prize_id=${
                     r.data.prize.prize_id
@@ -108,6 +109,7 @@ export default function CaseModal(props) {
         dispatch(
           setSecondModal(
             <ClaimModal
+              demo={true}
               price={props.case.prizes[prize_index].price}
               image={`https://singstal12345.pythonanywhere.com/photo/prize?prize_id=${prize_id}&t=${Date.now()}`}
             />

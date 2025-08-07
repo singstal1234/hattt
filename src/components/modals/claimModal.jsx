@@ -29,7 +29,9 @@ export default function ClaimModal(props) {
           className="claim-modal-button"
           onClick={() => {
             setOpacity(0);
-            dispatch(setBalance(balance + props.price));
+            if (!props.demo) {
+              dispatch(setBalance(balance + props.price));
+            }
             setTimeout(() => {
               dispatch(setSecondModal(null));
             }, 300);
