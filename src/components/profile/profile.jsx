@@ -211,7 +211,7 @@ export default function Profile() {
                   onClick={() => {
                     axios
                       .post(
-                        `https://singstal12345.pythonanywhere.com/balance/claim/${telegramId}`
+                        `https://singstal12345.pythonanywhere.com/balance/claim/${userId}`
                       )
                       .then((r) => {
                         dispatch(setBalance(balance + reward));
