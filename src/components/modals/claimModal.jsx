@@ -4,6 +4,7 @@ import "./claimModal.css";
 import { useDispatch, useSelector } from "react-redux";
 import { setSecondModal } from "../../store/slices/modalSlice";
 import { setBalance } from "../../store/slices/userSlice";
+import { TonLogo } from "../common/header";
 
 export default function ClaimModal(props) {
   const dispatch = useDispatch();
@@ -37,7 +38,7 @@ export default function ClaimModal(props) {
             }, 300);
           }}
         >
-          Claim
+          Claim {props.price} <TonLogo color={"white"} />
         </button>
       </div>
     </div>
