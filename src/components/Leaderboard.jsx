@@ -56,6 +56,7 @@ export default function Leaderboard() {
         // Добавляем async здесь
         console.log(r);
         const newLd = [];
+        if (r.length == 0) return;
 
         // Используем Promise.all для ожидания всех запросов
         await Promise.all(
@@ -80,7 +81,7 @@ export default function Leaderboard() {
       .catch((e) => {
         console.log(e);
       });
-  }, []);
+  }, [userId]);
 
   // useEffect(() => {
   //   setId(window.Telegram.WebApp.initData.user.id);
@@ -127,7 +128,7 @@ export default function Leaderboard() {
               fill="white"
             />
           </svg> */}
-          <span>Leaderboard</span>
+          <span></span>
         </span>
       </div>
       <div className="ld-wrapper">

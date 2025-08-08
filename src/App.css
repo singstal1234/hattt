@@ -3,6 +3,10 @@
   height: 100%;
 }
 
+* {
+  font-family: Inter, sans-serif;
+}
+
 .modal-background {
   position: fixed;
   z-index: 100;
