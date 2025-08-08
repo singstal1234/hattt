@@ -82,7 +82,7 @@ function App() {
       return (
         <>
           <Winbar />
-          <FirstDepositBanner />
+          {/* <FirstDepositBanner /> */}
           {/* <Deposit /> */}
           <Cases />{" "}
         </>
