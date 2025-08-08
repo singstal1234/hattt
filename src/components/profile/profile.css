@@ -75,12 +75,41 @@
   background-color: #19191d;
 }
 .last-rolls {
-  padding: 11px 11px 80px;
+  padding: 11px 11px;
   justify-content: flex-start;
   flex-direction: column;
   align-items: center;
   gap: 7px;
 }
+.buttons1 {
+  padding: 11px 11px 80px;
+  display: flex;
+  gap: 32px;
+  width: 100%;
+  justify-content: space-between;
+}
+.button1,
+.button2 {
+  font-size: 14px;
+  font-weight: 700;
+  color: #fff;
+  border-radius: 6px;
+  border: none;
+  outline: none;
+  text-align: center;
+  align-items: center;
+  width: calc((100% - 35px) / 2);
+  padding: 6px;
+}
+
+.button1 {
+  background-color: #6155f5;
+}
+.button2 {
+  background-color: #00000000;
+  border: 1px solid white;
+}
+
 .balance-info {
   padding: 2px;
   display: flex;

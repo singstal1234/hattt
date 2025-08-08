@@ -266,7 +266,8 @@ export default function Profile() {
                 >
                   {getPercentage(refs)}%
                 </div>
-                <button
+                <a
+                  href="https://t.me/HatCase_Official"
                   style={{
                     padding: "10px 20px",
                     backgroundColor: "#6c63ff",
@@ -278,7 +279,7 @@ export default function Profile() {
                   }}
                 >
                   More Info
-                </button>
+                </a>
               </div>
             </div>
           </div>
@@ -536,6 +537,19 @@ export default function Profile() {
             123 <TonLogo color={"white"} />
           </span>
         </div> */}
+      </div>
+      <div className="buttons1">
+        <a className="button1" href="https://t.me/HatCase_Official">
+          Community
+        </a>
+        <a
+          className="button2"
+          href={`https://t.me/share/url?url=${`https://t.me/HatCase_bot?start=${btoa(
+            userId.toString()
+          )}`}&text=Follow my refferal link!`}
+        >
+          Share
+        </a>
       </div>
     </div>
   );
