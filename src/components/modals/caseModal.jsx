@@ -326,7 +326,7 @@ export default function CaseModal(props) {
               <Prize
                 key={i}
                 width={"calc((100% - 32px) / 3)"}
-                height={112}
+                height={""}
                 image={el.image}
                 price={el.price}
               />

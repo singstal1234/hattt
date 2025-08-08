@@ -2,6 +2,7 @@
   border-radius: 10px;
   overflow: hidden;
   position: relative;
+  aspect-ratio: 1 / 1;
 }
 .prize-card svg {
   transform: scale(0.5);
@@ -34,6 +35,7 @@
   position: absolute;
   left: 0;
   top: 0;
+  aspect-ratio: 1 / 1;
   /* width: 100%;
   height: 100%; */
 }
