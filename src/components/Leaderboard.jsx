@@ -6,7 +6,7 @@ import gift2 from "./assets/gift2.png";
 import gift3 from "./assets/gift3.png";
 import { useSelector } from "react-redux";
 
-export default function Leaderboard(props) {
+export default function Leaderboard() {
   const [cat, setCat] = useState(0);
 
   const [ld, setLd] = useState([]);
