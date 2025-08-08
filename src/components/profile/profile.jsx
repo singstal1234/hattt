@@ -276,6 +276,8 @@ export default function Profile() {
                     borderRadius: "10px",
                     cursor: "pointer",
                     fontWeight: "bold",
+                    fontSize: "12px",
+                    textDecoration: "none",
                   }}
                 >
                   More Info

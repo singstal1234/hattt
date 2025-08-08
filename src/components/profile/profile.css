@@ -82,7 +82,7 @@
   gap: 7px;
 }
 .buttons1 {
-  padding: 11px 11px 80px;
+  padding: 11px 0px 80px;
   display: flex;
   gap: 32px;
   width: 100%;
@@ -100,6 +100,7 @@
   align-items: center;
   width: calc((100% - 35px) / 2);
   padding: 6px;
+  text-decoration: none;
 }
 
 .button1 {
