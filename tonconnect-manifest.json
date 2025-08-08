@@ -1,9 +1,5 @@
 {
-  "name": "HotCase MiniApp",
-  "description": "HotCase MiniApp",
-  "icons": ["https://singstal12345.pythonanywhere.com/photo/case?case_id=26"],
-  "redirect": {
-    "native": "https://t.me/HatCase_Official",
-    "universal": "https://t.me/HatCase_Official"
-  }
+  "url": "https://t.me/HatCase_bot/Timer",
+  "name": "HatCase",
+  "iconUrl": "https://singstal12345.pythonanywhere.com/photo/case?case_id=26"
 }
