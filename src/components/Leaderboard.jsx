@@ -15,7 +15,7 @@ export default function Leaderboard() {
 
   useEffect(() => {
     axios
-      .get("https://singstal1234.pythonanywhere.com/refferal/leaderboard")
+      .get("https://singstal12345.pythonanywhere.com/refferal/leaderboard")
       .then(async (r) => {
         // Добавляем async здесь
         console.log(r);
@@ -26,7 +26,7 @@ export default function Leaderboard() {
           r.data.map(async (el) => {
             try {
               const r2 = await axios.get(
-                `https://singstal1234.pythonanywhere.com/photo/user_name?telegram_id=${el[0]}`
+                `https://singstal12345.pythonanywhere.com/photo/user_name?telegram_id=${el[0]}`
               );
               newLd.push({
                 userId: el[0],
@@ -50,7 +50,7 @@ export default function Leaderboard() {
   useEffect(() => {
     axios
       .get(
-        `https://singstal1234.pythonanywhere.com/refferal/my?telegram_id=${userId}`
+        `https://singstal12345.pythonanywhere.com/refferal/my?telegram_id=${userId}`
       )
       .then(async (r) => {
         // Добавляем async здесь
@@ -63,7 +63,7 @@ export default function Leaderboard() {
           r.data.map(async (el) => {
             try {
               const r2 = await axios.get(
-                `https://singstal1234.pythonanywhere.com/photo/user_name?telegram_id=${el}`
+                `https://singstal12345.pythonanywhere.com/photo/user_name?telegram_id=${el}`
               );
               newLd.push({
                 userId: el,
@@ -161,7 +161,7 @@ export default function Leaderboard() {
                     <div className="name-block">
                       <span className="row-no">{i + 1}</span>
                       <img
-                        src={`https://singstal1234.pythonanywhere.com/photo/user?telegram_id=${el.userId}`}
+                        src={`https://singstal12345.pythonanywhere.com/photo/user?telegram_id=${el.userId}`}
                         alt=""
                         className="row-pfp"
                       />
@@ -183,7 +183,7 @@ export default function Leaderboard() {
                     <div className="name-block">
                       {/* <span className="row-no">{i + 1}</span> */}
                       <img
-                        src={`https://singstal1234.pythonanywhere.com/photo/user?telegram_id=${el.userId}`}
+                        src={`https://singstal12345.pythonanywhere.com/photo/user?telegram_id=${el.userId}`}
                         alt=""
                         className="row-pfp"
                       />
