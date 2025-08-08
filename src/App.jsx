@@ -59,7 +59,9 @@ function App() {
     axios
       .get(`https://singstal12345.pythonanywhere.com/case`)
       .then((r) => {
-        dispatch(setCases(r.data));
+        const newCases = r.data.slice();
+        newCases.sort((a, b) => a.price - b.price);
+        dispatch(setCases(newCases));
       })
       .catch((e) => {
         console.log(e);
