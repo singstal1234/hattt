@@ -289,7 +289,7 @@ export default function Profile() {
             <div className="balance-info">
               <span className="balance-text">Balance</span>
               <span className="balance-value">
-                {balance} <TonLogo color={"white"} />
+                {balance.toFixed(3)} <TonLogo color={"white"} />
               </span>
             </div>
             <button
