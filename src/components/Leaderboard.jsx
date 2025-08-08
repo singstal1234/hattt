@@ -3,7 +3,7 @@ import "../App.css";
 import axios from "axios";
 import gift1 from "./assets/gift1.png";
 import gift2 from "./assets/gift2.png";
-import gift3 from "./assets/gift3.png";
+import gift3 from "../assets/gift3.png";
 import { useSelector } from "react-redux";
 
 export default function Leaderboard() {
