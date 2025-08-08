@@ -13,8 +13,8 @@ export default function Prize(props) {
       <img
         className="prize-image"
         style={{
-          width: props.width,
-          height: props.height,
+          width: "100%",
+          height: "100%",
         }}
         src={props.image}
         alt=""
