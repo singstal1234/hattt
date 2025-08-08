@@ -67,9 +67,7 @@ export default function Winbar() {
                 key={i}
                 className="winbar-prize"
                 style={{
-                  backgroundImage: `url(https://singstal12345.pythonanywhere.com/photo/prize?prize_id=${
-                    prize.prize_id
-                  }&t=${Date.now()})`,
+                  backgroundImage: `url(https://singstal12345.pythonanywhere.com/photo/prize?prize_id=${prize.prize_id})`,
                 }}
               ></div>
             ))}
