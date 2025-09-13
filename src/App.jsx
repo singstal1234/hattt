@@ -35,7 +35,7 @@ function App() {
       .post("https://singstal12345.pythonanywhere.com/balance/check-update")
       .then((_) => {
         setTimeout(() => {
-          console.log("Hello nnn");
+          console.log("Hello nnnn");
           console.log("Hello from setBalance!");
           console.log("TG ID ISSSS " + tgId);
           axios
@@ -44,7 +44,7 @@ function App() {
             )
             .then((r) => {
               if (r.data != 0) {
-                if (r.data != null) dispatch(setStars(parseInt(r.data)));
+                if (r.data != null) dispatch(setStars(r.data));
                 else dispatch(setStars(0));
               }
             })
