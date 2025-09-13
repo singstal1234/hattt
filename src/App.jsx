@@ -35,6 +35,7 @@ function App() {
       .post("https://singstal12345.pythonanywhere.com/balance/check-update")
       .then((_) => {
         setTimeout(() => {
+          console.log("Hello nnn");
           console.log("Hello from setBalance!");
           console.log("TG ID ISSSS " + tgId);
           axios
@@ -54,6 +55,7 @@ function App() {
               console.log(r);
               console.log(tgId);
               if (r.data != 0) {
+                console.log("resetting data ahahhaha");
                 if (r.data != null) dispatch(setBalance(r.data));
                 else dispatch(setBalance(0));
               }
