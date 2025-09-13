@@ -109,11 +109,7 @@ function App() {
       );
     }
     if (tab == 1) {
-      return (
-        <>
-          <Events />
-        </>
-      );
+      return <>{/* <Events /> */}</>;
     }
     return <Profile />;
   };
