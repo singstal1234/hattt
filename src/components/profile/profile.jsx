@@ -1,7 +1,7 @@
 import React, { use, useEffect, useState } from "react";
 import "./profile.css";
 import avatar from "./../../assets/avatar.jpg";
-import { TonLogo } from "../common/header.jsx";
+import { StarLogo, TonLogo } from "../common/header.jsx";
 import { useTonConnectUI, useTonWallet } from "@tonconnect/ui-react";
 import { useDispatch, useSelector } from "react-redux";
 import { setBalance } from "../../store/slices/userSlice";
@@ -54,12 +54,16 @@ export default function Profile() {
 
   const [data, setData] = useState([]);
   const [isDepWindow, setIsDepWindow] = useState(false);
+  const [isStarWindow, setIsStarWindow] = useState(false);
+
   const [cat, setCat] = useState(0);
   const [dep, setDep] = useState(1);
+  const [st, setSt] = useState(1);
   const [wd, setWd] = useState(1);
   const [address, setAddress] = useState("");
 
   const balance = useSelector((s) => s.user.balance);
+  const stars = useSelector((s) => s.user.stars);
   const userId = useSelector((s) => s.user.telegramId);
   const prizes = useSelector((s) => s.case.prizes);
 
@@ -301,6 +305,22 @@ export default function Profile() {
               Deposit
             </button>
           </div>
+          <div className="balance">
+            <div className="balance-info">
+              <span className="balance-text">Balance</span>
+              <span className="balance-value">
+                {stars} <StarLogo />
+              </span>
+            </div>
+            <button
+              className="balance-button1"
+              onClick={() => {
+                setIsStarWindow(true);
+              }}
+            >
+              Deposit
+            </button>
+          </div>
         </>
       )}
       {isDepWindow && (
@@ -451,6 +471,127 @@ export default function Profile() {
                   return "Withdraw";
                 })()}
               </button>
+            </>
+          )}
+        </div>
+      )}
+      {isStarWindow && (
+        <div className="deposit-withdraw">
+          <div className="selectors">
+            <button
+              className={`selector1 ${cat == 0 ? "selected" : ""}`}
+              onClick={() => setCat(0)}
+            >
+              <span>Deposit</span>
+            </button>
+            <button
+              className={`selector1 ${cat == 1 ? "selected" : ""}`}
+              onClick={() => setCat(1)}
+            >
+              Withdraw
+            </button>
+          </div>
+          {cat == 0 ? (
+            <>
+              <span className="input-label">Amount to deposit</span>
+              <input
+                type="number"
+                min={0}
+                max={1000}
+                defaultValue={1}
+                className="amount-input"
+                onChange={(e) => {
+                  console.log(e.target.value);
+                  if (parseInt(e.target.value) < 0) {
+                    e.target.value = 1;
+                  } else {
+                    setSt(parseInt(e.target.value));
+                  }
+                }}
+              />
+              <button
+                className="balance-button"
+                onClick={() => {
+                  axios
+                    .post(
+                      `https://singstal12345.pythonanywhere.com/balance/star-invoice`,
+                      {
+                        user_id: tgId,
+                        amount: st,
+                      }
+                    )
+                    .then((r) => {
+                      window.open(r.data);
+                    })
+                    .catch((e) => console.log(e));
+                }}
+              >
+                {"Deposit"}
+              </button>
+              <span className="input-label" style={{ color: "gray" }}>
+                You may need to reload app after deposit
+              </span>
+            </>
+          ) : (
+            <>
+              {/* <div className="selectors">
+                <button className="selector1" onClick={() => setCat(0)}>
+                  Deposit
+                </button>
+                <button
+                  className="selector1"
+                  onClick={() => setCat(1)}
+                  style={{ textDecoration: "underline" }}
+                >
+                  Withdraw
+                </button>
+              </div> */}
+              <span className="input-label">Temporarly unavailable</span>
+              {/* <span className="input-label">Amount to withdraw</span>
+              <input
+                type="number"
+                className="amount-input"
+                defaultValue={1}
+                onChange={(e) => {
+                  console.log(e.target.value);
+                  if (parseFloat(e.target.value) < 0) {
+                    e.target.value = 1;
+                  } else {
+                    setWd(parseFloat(e.target.value));
+                  }
+                }}
+              />
+              <span className="input-label">TON Address</span>
+              <input
+                type="text"
+                className="amount-input"
+                onChange={(e) => {
+                  setAddress(e.target.value);
+                }}
+              />
+              <button
+                className="balance-button"
+                disabled={wd > balance || wd < 0.2}
+                onClick={() => {
+                  console.log(123);
+                  axios
+                    .post("https://singstal12345.pythonanywhere.com/balance/withdraw", {
+                      user_id: tgId,
+                      amount: wd,
+                      address: address,
+                    })
+                    .then((r) => {
+                      setBalance(balance - wd);
+                    })
+                    .catch((e) => console.log(e));
+                }}
+              >
+                {(() => {
+                  if (wd < 0.2) return "Minimum 0.2 TON";
+                  if (wd > balance) return "Not enough money";
+                  return "Withdraw";
+                })()}
+              </button> */}
             </>
           )}
         </div>

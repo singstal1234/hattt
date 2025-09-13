@@ -4,7 +4,7 @@ import { Header } from "./components/common/header.jsx";
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import axios from "axios";
-import { setBalance, setId } from "./store/slices/userSlice";
+import { setBalance, setId, setStars } from "./store/slices/userSlice";
 import { setCases, setPrizes } from "./store/slices/caseSlice";
 import Cases from "./components/mainscreen/cases";
 import Winbar from "./components/mainscreen/winbar";
@@ -27,7 +27,7 @@ function App() {
     console.log("hello!");
     console.log("wassup?");
     console.log("53!");
-    // dispatch(setId(664664));
+    // dispatch(setId(6340905890));
   }, []);
 
   useEffect(() => {
@@ -37,6 +37,14 @@ function App() {
         setTimeout(() => {
           console.log("Hello from setBalance!");
           console.log("TG ID ISSSS " + tgId);
+          axios
+            .get(
+              `https://singstal12345.pythonanywhere.com/balance/stars/get/${tgId}`
+            )
+            .then((r) => {
+              dispatch(setStars(parseInt(r.data) || 0));
+            })
+            .catch((e) => console.log(e));
           axios
             .get(`https://singstal12345.pythonanywhere.com/balance/get/${tgId}`)
             .then((r) => {
@@ -62,6 +70,7 @@ function App() {
         const newCases = r.data.slice();
         newCases.sort((a, b) => a.price - b.price);
         dispatch(setCases(newCases));
+        console.log(newCases);
       })
       .catch((e) => {
         console.log(e);

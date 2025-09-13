@@ -1,5 +1,5 @@
 import React from "react";
-import { TonLogo } from "./header.jsx";
+import { StarLogo, TonLogo } from "./header.jsx";
 import "./prize.css";
 export default function Prize(props) {
   return (
@@ -20,11 +20,22 @@ export default function Prize(props) {
         alt=""
         srcset=""
       />
+      {props.stars ? (
+        <>
+          <div className="prize-price">
+            <StarLogo />
+            <span>{props.star_price}</span>
+          </div>
+        </>
+      ) : (
+        <>
+          <div className="prize-price">
+            <TonLogo color={"white"} />
+            <span>{props.price}</span>
+          </div>
+        </>
+      )}
 
-      <div className="prize-price">
-        <TonLogo color={"white"} />
-        <span>{props.price}</span>
-      </div>
       {/* <div className="prize-price">
         <TonLogo color={"white"} />
         <span>{props.price}</span>

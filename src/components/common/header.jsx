@@ -25,9 +25,27 @@ export const TonLogo = ({ color }) => {
   );
 };
 
+export const StarLogo = ({ color }) => {
+  return (
+    <svg
+      width="12"
+      height="11"
+      viewBox="0 0 12 11"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <path
+        d="M5.85059 0L7.19767 4.1459H11.5569L8.03021 6.7082L9.3773 10.8541L5.85059 8.2918L2.32387 10.8541L3.67096 6.7082L0.144247 4.1459H4.5035L5.85059 0Z"
+        fill={color || "#FFCC00"}
+      />
+    </svg>
+  );
+};
+
 export const Header = () => {
   const wallet = useTonWallet();
   const balance = useSelector((s) => s.user.balance);
+  const stars = useSelector((s) => s.user.stars);
   return (
     <header>
       {/* <div className="header-logo">
@@ -66,6 +84,10 @@ export const Header = () => {
           <div className="balance-block">
             <span>{balance == null ? "0.00" : balance.toFixed(2)}</span>
             <TonLogo color={"white"} />
+          </div>
+          <div className="balance-block">
+            <span>{stars == null ? "0" : stars}</span>
+            <StarLogo />
           </div>
         </div>
       </div>
