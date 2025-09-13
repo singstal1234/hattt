@@ -42,7 +42,10 @@ function App() {
               `https://singstal12345.pythonanywhere.com/balance/stars/get/${tgId}`
             )
             .then((r) => {
-              dispatch(setStars(parseInt(r.data) || 0));
+              if (r.data != 0) {
+                if (r.data != null) dispatch(setStars(parseInt(r.data)));
+                else dispatch(setStars(0));
+              }
             })
             .catch((e) => console.log(e));
           axios
