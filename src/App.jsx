@@ -35,35 +35,39 @@ function App() {
       .post("https://singstal12345.pythonanywhere.com/balance/check-update")
       .then((_) => {
         setTimeout(() => {
-          console.log("Hello nnnn");
-          console.log("Hello from setBalance!");
-          console.log("TG ID ISSSS " + tgId);
-          axios
-            .get(
-              `https://singstal12345.pythonanywhere.com/balance/stars/get/${tgId}`
-            )
-            .then((r) => {
-              if (r.data != 0) {
-                if (r.data != null) dispatch(setStars(r.data));
-                else dispatch(setStars(0));
-              }
-            })
-            .catch((e) => console.log(e));
-          axios
-            .get(`https://singstal12345.pythonanywhere.com/balance/get/${tgId}`)
-            .then((r) => {
-              console.log(r);
-              console.log(tgId);
-              if (r.data != 0) {
-                console.log("resetting data ahahhaha");
-                if (r.data != null) dispatch(setBalance(r.data));
-                else dispatch(setBalance(0));
-              }
-            })
-            .catch((e) => {
-              console.log(e);
-              alert(e);
-            });
+          console.log("Hello nnnnn");
+          if (tgId != 0) {
+            console.log("Hello from setBalance!");
+            console.log("TG ID ISSSS " + tgId);
+            axios
+              .get(
+                `https://singstal12345.pythonanywhere.com/balance/stars/get/${tgId}`
+              )
+              .then((r) => {
+                if (r.data != 0) {
+                  if (r.data != null) dispatch(setStars(r.data));
+                  else dispatch(setStars(0));
+                }
+              })
+              .catch((e) => console.log(e));
+            axios
+              .get(
+                `https://singstal12345.pythonanywhere.com/balance/get/${tgId}`
+              )
+              .then((r) => {
+                console.log(r);
+                console.log(tgId);
+                if (r.data != 0) {
+                  console.log("resetting data ahahhaha");
+                  if (r.data != null) dispatch(setBalance(r.data));
+                  else dispatch(setBalance(0));
+                }
+              })
+              .catch((e) => {
+                console.log(e);
+                alert(e);
+              });
+          }
         }, 2000);
       });
   }, [tgId]);
