@@ -1,11 +1,12 @@
 import React, { useState } from "react";
 
 const StarToggle = (props) => {
-  const [isActive, setIsActive] = useState(false);
-
+  //const [isActive, setIsActive] = useState(false);
   const toggle = () => {
-    props.setStarToggle(!isActive);
-    setIsActive(!isActive);
+    if (!props.disabled) {
+      props.setStarToggle(!props.val);
+    }
+    //setIsActive(!isActive);
   };
 
   return (
@@ -15,7 +16,7 @@ const StarToggle = (props) => {
         position: "relative",
         width: "32px",
         height: "16px",
-        backgroundColor: isActive ? "#0088ff" : "#191919",
+        backgroundColor: props.val ? "#0088ff" : "#191919",
         borderRadius: "8px",
         cursor: "pointer",
         transition: "background-color 0.2s",
@@ -25,7 +26,7 @@ const StarToggle = (props) => {
         style={{
           position: "absolute",
           top: "2px",
-          left: isActive ? "18px" : "2px",
+          left: props.val ? "18px" : "2px",
           width: "12px",
           height: "12px",
           backgroundColor: "white",

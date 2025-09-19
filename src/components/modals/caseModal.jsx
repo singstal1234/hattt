@@ -25,6 +25,8 @@ export default function CaseModal(props) {
 
   const tgId = useSelector((s) => s.user.telegramId);
 
+  const [isToggleDisabled, setIsToggleDisabled] = useState(false);
+
   // const prizeImages = {
   //   2: prize1Img,
   //   9: prize2Img,
@@ -35,54 +37,61 @@ export default function CaseModal(props) {
     setIsRolling(true);
     if (!starToggle) {
       if (!demo) {
-        dispatch(setBalance(balance - props.case.price));
-
         axios
           .post("https://singstal12345.pythonanywhere.com/case/open", {
             case_id: props.case.case_id,
             user_id: tgId,
+            promocode: promo,
           })
           .then((r) => {
+            console.log(r);
             // alert(
             //   `Вы выиграли приз ${r.data.prize.prize_id}. ${r.data.prize.name} за ${r.data.prize.price} TON!`
             // );
-            const prize_id = r.data.prize.prize_id;
-            const prize_ids = [];
-            for (let i = 0; i < props.case.prizes.length; i++) {
-              prize_ids.push(props.case.prizes[i].prize_id);
-            }
-            console.log(prize_ids);
-            const prize_index = prize_ids.indexOf(prize_id);
-            console.log(prize_index);
-            const randomTimeout = getRandomInteger(7000, 10000);
-            setTransition(true);
-            setRandomTimeout(randomTimeout);
-            const randomNum =
-              getRandomInteger(30, 43) * casePrizes.length + prize_index;
-            setIndexToScroll(randomNum);
-            const randomOffset = getRandomInteger(1, 86);
-            setRandomOffset(randomOffset);
-            setLeft(-randomNum * 87 - 4 * (randomNum - 0.5) - randomOffset);
-            setTimeout(() => {
-              setTransition(false);
+            if (r.data.msg) {
+              setIsInvalidPromo(true);
+              console.log("invalid promo");
               setIsRolling(false);
-              setIndexToScroll(casePrizes.length * 4 + prize_index);
-              const initialIndex = casePrizes.length * 4 + prize_index;
-              setLeft(
-                -initialIndex * 87 - 4 * (initialIndex - 0.5) - randomOffset
-              );
-              dispatch(
-                setSecondModal(
-                  <ClaimModal
-                    demo={false}
-                    price={r.data.prize.price}
-                    image={`https://singstal12345.pythonanywhere.com/photo/prize?prize_id=${
-                      r.data.prize.prize_id
-                    }&t=${Date.now()}`}
-                  />
-                )
-              );
-            }, randomTimeout + 1000);
+            } else {
+              dispatch(setBalance(balance - props.case.price));
+              const prize_id = r.data.prize.prize_id;
+              const prize_ids = [];
+              for (let i = 0; i < props.case.prizes.length; i++) {
+                prize_ids.push(props.case.prizes[i].prize_id);
+              }
+              console.log(prize_ids);
+              const prize_index = prize_ids.indexOf(prize_id);
+              console.log(prize_index);
+              const randomTimeout = getRandomInteger(7000, 10000);
+              setTransition(true);
+              setRandomTimeout(randomTimeout);
+              const randomNum =
+                getRandomInteger(30, 43) * casePrizes.length + prize_index;
+              setIndexToScroll(randomNum);
+              const randomOffset = getRandomInteger(1, 86);
+              setRandomOffset(randomOffset);
+              setLeft(-randomNum * 87 - 4 * (randomNum - 0.5) - randomOffset);
+              setTimeout(() => {
+                setTransition(false);
+                setIsRolling(false);
+                setIndexToScroll(casePrizes.length * 4 + prize_index);
+                const initialIndex = casePrizes.length * 4 + prize_index;
+                setLeft(
+                  -initialIndex * 87 - 4 * (initialIndex - 0.5) - randomOffset
+                );
+                dispatch(
+                  setSecondModal(
+                    <ClaimModal
+                      demo={false}
+                      price={r.data.prize.price}
+                      image={`https://singstal12345.pythonanywhere.com/photo/prize?prize_id=${
+                        r.data.prize.prize_id
+                      }&t=${Date.now()}`}
+                    />
+                  )
+                );
+              }, randomTimeout + 1000);
+            }
           });
       } else {
         const prize_ids = [];
@@ -223,12 +232,16 @@ export default function CaseModal(props) {
 
   const [claimButton, setClaimButton] = useState(null);
 
+  const [promo, setPromo] = useState("");
+
   const dispatch = useDispatch();
 
   const [randomTimeout, setRandomTimeout] = useState(0); // вместо undefined\
 
   const [demo, setDemo] = useState(false);
   const [starToggle, setStarToggle] = useState(false);
+
+  const [isInvalidPromo, setIsInvalidPromo] = useState(false);
 
   const starToggleClick = (val) => {
     setStarToggle(val);
@@ -247,6 +260,7 @@ export default function CaseModal(props) {
   const stars = useSelector((s) => s.user.stars);
 
   const getRollButtonText = () => {
+    if (promo != "") return "Check promocode";
     if (!starToggle) {
       if (isRolling) {
         return "Rolling...";
@@ -443,13 +457,58 @@ export default function CaseModal(props) {
       >
         {getRollButtonText()}
       </button>
+      <div
+        className="promo-block"
+        style={{
+          display: "flex",
+          flexDirection: "column",
+          padding: "15px",
+        }}
+      >
+        <span style={{ color: "grey", fontFamily: "sans-serif", fontSize: 12 }}>
+          Enter promocode
+        </span>
+        <input
+          type="text"
+          style={{
+            width: "40%",
+            background: "none",
+            border: "0.5px solid white",
+            borderRadius: "4px",
+            color: "white",
+          }}
+          onChange={(e) => {
+            setPromo(e.target.value);
+            if (e.target.value != "") {
+              setStarToggle(false);
+              setIsToggleDisabled(true);
+            } else {
+              setIsToggleDisabled(false);
+            }
+          }}
+        />
+        <span
+          style={{
+            color: "red",
+            fontFamily: "sans-serif",
+            fontSize: 12,
+            display: isInvalidPromo ? "block" : "none",
+          }}
+        >
+          Invalid promocode
+        </span>
+      </div>
       <div className="demo-block">
         <span>Demo Mode</span>
         <Toggle setDemo={setDemo} />
       </div>
       <div className="demo-block">
         <span>Roll Stars</span>
-        <StarToggle setStarToggle={starToggleClick} />
+        <StarToggle
+          setStarToggle={starToggleClick}
+          val={starToggle}
+          disabled={isToggleDisabled}
+        />
       </div>
       <div className="case-prizes">
         <span className="case-possible-prizes-text">Possible prizes:</span>

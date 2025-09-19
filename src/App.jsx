@@ -22,12 +22,12 @@ function App() {
   const tgId = useSelector((s) => s.user.telegramId);
 
   useEffect(() => {
-    dispatch(setId(window.Telegram.WebApp.initDataUnsafe.user.id));
-    console.log(window.Telegram.WebApp.initDataUnsafe.user.id);
-    console.log("hello!");
+    // dispatch(setId(window.Telegram.WebApp.initDataUnsafe.user.id));
+    // console.log(window.Telegram.WebApp.initDataUnsafe.user.id);
+    // console.log("hello!");
     console.log("wassup?");
     console.log("53!");
-    // dispatch(setId(6340905890));
+    dispatch(setId(6340905890));
   }, []);
 
   useEffect(() => {
